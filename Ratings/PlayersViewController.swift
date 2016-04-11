@@ -43,8 +43,14 @@ class PlayersViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("PlayerCell", forIndexPath: indexPath)
         let player = players[indexPath.row]
         
-        cell.textLabel?.text = player.name
-        cell.detailTextLabel?.text = player.game
+        if let nameLabel = cell.viewWithTag(100) as? UILabel {
+            nameLabel.text = player.name
+        }
+        
+        if let gameLabel = cell.viewWithTag(101) as? UILabel {
+            gameLabel.text = player.game
+        }
+        
         return cell
     }
 
